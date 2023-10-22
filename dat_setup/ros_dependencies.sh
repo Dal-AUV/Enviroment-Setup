@@ -41,4 +41,4 @@ python3 -m pip install pygraphviz pydot
 python3 -m pip install lxml
 python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml netifaces numpy pyparsing pyyaml setuptools argcomplete
 
-echo "Dependency installation complete."
+echo "Dependency installation complete!"
