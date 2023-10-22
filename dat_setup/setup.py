@@ -1,11 +1,8 @@
 import os
 
-## install ROS 2 Foxy on Mac
-
-# install dependencies
+# install ROS 2 Foxy on Mac (x86-84)
 os.system ("sh ./dat_setup/ros_dependencies.sh")
-# install ROS
 os.system("sh ./dat_setup/ros_install.sh")
 
-## install Boost on Mac
-
+# install Boost on Mac (x86-84)
+os.system("sh ./dat_setup/boost_install.sh")

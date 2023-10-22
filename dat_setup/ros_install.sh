@@ -8,12 +8,12 @@ INSTALL_DIR="/opt/ros2/foxy"
 # Create the installation directory if it doesn't exist
 sudo mkdir -p $INSTALL_DIR
 
-# Download and extract the release assets
-echo "Downloading ROS 2 Foxy release for macOS..."
+# Download the release 
+echo "Downloading ROS 2 Foxy for x86_84..."
 curl -L -o /tmp/ros2-foxy-20230620-linux-centos-amd64.tar.bz2  "$RELEASE_URL/ros2-foxy-20230620-linux-centos-amd64.tar.bz2"
 
-# Extract the release archive
-echo "Extracting ROS 2 Foxy release..."
+# Extract the release 
+echo "Extracting ROS 2 Foxy for x86_84..."
 sudo tar -xvf /tmp/ros2-foxy-20230620-linux-centos-amd64.tar.bz2 -C $INSTALL_DIR
 
-echo "ROS 2 Foxy has been successfully installed!"
+echo "ROS 2 Foxy was successfully installed!"
