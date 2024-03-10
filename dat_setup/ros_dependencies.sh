@@ -1,44 +1,35 @@
-# ensure homebrew is installed
-brew doctor
+# Setup locale
 
-brew install python@3.8
-# Unlink in case you have python@3.7 installed already
-brew unlink python
-# Make the python command be Python 3.8
-brew link --force python@3.8
+locale
 
-# install asio and tinyxml2 for Fast-RTPS
-brew install asio tinyxml2
+# test
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-# install dependencies for robot state publisher
-brew install tinyxml eigen pcre poco
+# verify settings
+locale 
 
-# OpenCV isn't a dependency of ROS 2, but it is used by some demos.
-brew install opencv
+sudo apt install software-properties-common
+sudo add-apt-repository universe
 
-# install OpenSSL for DDS-Security
-brew install openssl
-# if you are using ZSH, then replace '.bashrc' with '.zshrc'
-echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
-# install Qt for RViz
-brew install qt freetype assimp
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-# install console_bridge for rosbag2
-brew install console_bridge
+sudo apt update
+sudo apt upgrade
 
-# install dependencies for rcl_logging_log4cxx
-brew install log4cxx spdlog
+sudo apt install ros-foxy-desktop python3-argcomplete
 
-# install CUnit for Cyclone DDS
-brew install cunit
+sudo apt install ros-foxy-ros-base python3-argcomplete
 
-python3 -m pip install rosdistro
-brew install sip pyqt5
-ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5
-brew install graphviz
-python3 -m pip install pygraphviz pydot
-python3 -m pip install lxml
-python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml netifaces numpy pyparsing pyyaml setuptools argcomplete
+sudo apt install ros-dev-tools
 
-echo "Dependency installation complete!"
+# Replace ".bash" with your shell if you're not using bash
+# Possible values are: setup.bash, setup.sh, setup.zsh
+source /opt/ros/foxy/setup.bash
+
+echo "Installation complete!"
