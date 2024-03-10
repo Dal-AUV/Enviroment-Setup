@@ -1,8 +1,7 @@
 import os
 
-# install ROS 2 Foxy 
-os.system ("wsl ./ros_dependencies.sh")
-# os.system("sh ./dat_setup/ros_install.sh")
+script_path = "./ros_dependencies.sh"
+exit_status = os.system(f"sh {script_path}")
 
-# install Boost
-# os.system("sh ./dat_setup/boost_install.sh")
+if exit_status != 0:
+    print(f"Error executing {script_path}. Exit status: {exit_status}")
